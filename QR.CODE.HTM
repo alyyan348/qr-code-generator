@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  <style>
+    body { background: #f0f0f0; font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input { padding: 10px; width: 300px; }
+    button { padding: 10px 20px; margin-left: 10px; }
+    #qr { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+  <p>Enter your text or URL below:</p>
+  <input id="textInput" type="text" placeholder="https://example.com">
+  <button onclick="generateQR()">Generate</button>
+
+  <div id="qr">
+    <!-- Fake QR code appears here -->
+  </div>
+
+  <script>
+    function generateQR() {
+      const qr = document.getElementById('qr');
+      const input = document.getElementById('textInput').value;
+
+      if (input.trim() === '') {
+        alert("Please enter a URL or text.");
+        return;
+      }
+
+      qr.innerHTML = `
+        <p><strong>QR Code:</strong></p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=fake_qr_data_only" alt="QR Code">
+        <p>Generated successfully!</p>
+      `;
+    }
+  </script>
+</body>
+</html>
